@@ -1,0 +1,54 @@
+//***FONTS***//
+$f-montserrat: 'Montserrat', sans-serif;
+$f-roboto: 'Roboto', sans-serif;
+
+/***FONT-COLORS***/
+$c-ivory: rgb(255, 251, 233);
+
+/*main-font-colors*/
+$c-font-primary: rgb(255, 251, 235);
+$c-font-secondary: #000000;
+$c-font-thirdly: rgb(252, 77, 60);
+$c-font-fourthly: #e9e9e9;
+$c-font-grey-light: #a5a5a5;
+$c-font-green: #59b966;
+
+/***BACKGROUNDS***/
+$c-bg-primary: rgb(17, 17, 17);
+$c-bg-secondary: rgb(173, 48, 37);
+$c-bg-thirdly: rgb(64, 224, 208); //btn:hover
+$c-bg-thirdly: rgb(44, 172, 140); //btn:hover
+
+$c-logitech: rgb(0, 255, 208);
+$c-word-work: rgb(89, 185, 102); //word work AboutSection
+$c-bg-fourthly: rgb(209, 206, 206); //burger-bars mobile
+$c-bg-grey-light: #a8a8a8;
+$c-bg-grey-dark: rgb(64, 64, 64);
+
+/*gradient-overlay_hero-img*/
+$c-start: #1b1616;
+$c-stop: #111111;
+
+/**SOCIAL-MEDA-ICONS-hover*/
+$c-hover-fb: #3b5998;
+$c-hover-tw: #38a1f3;
+//$c-hover-git: #24292e; //original color
+$c-hover-git: #4b525a; //light
+$c-hover-l-in: #0e76a8;
+
+//***MAIN_PADDINGS_&_MARGINS***//
+/*paddings*/
+$p-xlg: 15rem;
+$p-lg: 12rem;
+$p-md: 8rem; // used in .wrapper/ABOUT
+$p-sm: 5rem;
+$p-xs: 3rem;
+$p-xxs: 1rem;
+
+/*margins*/
+$m-xlg: 15rem;
+$m-lg: 12rem;
+$m-md: 8rem;
+$m-sm: 5rem;
+$m-xs: 3rem;
+$m-xxs: 1rem;

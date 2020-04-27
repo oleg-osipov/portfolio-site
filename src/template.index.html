@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oleg Osipov Front-End Developer</title>
+  </head>
+  <body id="body">
+    <!-- slide menu -->
+    <div class="slide-menu menu" id="slideDownMenu">
+      <div class="menu__secondary-bg-layer"></div>
+      <div class="menu__main-bg-layer">
+        <div class="menu__close-btn-wrapper" onclick="" id="menuCloseButton">
+          <span class="menu__close-btn">Close</span>
+          <div class="menu__circle-wrapper">
+            <svg
+              class="menu__svg-circle"
+              id="circleClose"
+              viewBox="0 0 62 62"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="31" cy="31" r="30"></circle>
+            </svg>
+          </div>
+        </div>
+
+        <div class="menu__wrapper">
+          <ul class="menu__items">
+            <li class="menu__item">
+              <a href="#home" class="menu__item-txt"
+                ><span>/</span><span>Home</span>
+                <div class="menu__item-center-line"></div
+              ></a>
+            </li>
+            <li class="menu__item">
+              <a href="#about" class="menu__item-txt">
+                <span>/</span>
+                <span>About</span>
+                <div class="menu__item-center-line"></div>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#skills" class="menu__item-txt">
+                <span>/</span>
+                <span>Skills</span>
+                <div class="menu__item-center-line"></div>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#contact" class="menu__item-txt">
+                <span>/</span>
+                <span>Contact</span>
+                <div class="menu__item-center-line"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="mainBackground" class="main-background"></div>
+    <header id="home" class="hero">
+      <div class="container">
+        <div class="hero__nav-bar">
+          <div class="hero__logo">
+            <a href="#">
+              <svg class="hero__logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="49"></circle>
+                <line x1="49" y1="100" x2="49"></line>
+                <line x1="50" y1="62" x2="98" y2="62"></line>
+              </svg>
+            </a>
+          </div>
+          <nav class="hero__navigation">
+            <div class="hero__nav--mobile">
+              <div class="burger">
+                <a class="burger-bars" id="BurgerButtonMobile">
+                  <span class="burger-bar"></span>
+                </a>
+              </div>
+            </div>
+            <div class="hero__nav--desktop">
+              <ul class="nav main-navigation">
+                <li class="nav__item">
+                  <a href="#home">
+                    <div class="nav__icon-wrapper">
+                      <span class="nav-dot"></span>
+                      <svg class="nav__svg home">
+                        <use xlink:href="#icon_sprite_icon-home"></use>
+                      </svg>
+                    </div>
+                    <span class="nav__txt">Home</span>
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#about">
+                    <div class="nav__icon-wrapper">
+                      <span class="nav-dot"></span>
+                      <svg class="nav__svg about">
+                        <use xlink:href="#icon_sprite_icon-id-badge"></use>
+                      </svg>
+                    </div>
+                    <span class="nav__txt">About</span>
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#skills">
+                    <div class="nav__icon-wrapper">
+                      <span class="nav-dot"></span>
+                      <svg class="nav__svg skill">
+                        <use xlink:href="#icon_sprite_icon-insert-chart-outlined"></use>
+                      </svg>
+                    </div>
+                    <span class="nav__txt">Skills</span>
+                  </a>
+                </li>
+                <li class="nav__item">
+                  <a href="#contact">
+                    <div class="nav__icon-wrapper">
+                      <span class="nav-dot"></span>
+                      <svg class="nav__svg contact">
+                        <use xlink:href="#icon_sprite_icon-envelope"></use>
+                      </svg>
+                    </div>
+                    <span class="nav__txt">Contact</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="hero__content">
+          <div class="hero__text-container">
+            <div class="hero__text-container-inner">
+              <div class="hero__text">
+                <div class="hero__greating-container" id="greatingTxt">
+                  <h1 class="hero__greating-txt">/Hi there</h1>
+                  <div class="hero__dots">
+                    <div class="hero__dot-upp"><span></span></div>
+                    <div class="hero__dot-down"><span></span></div>
+                  </div>
+                </div>
+                <h3>I am<span class="hero__name-hightlight"> Oleg Osipov</span></h3>
+                <h3>Interactive Front-End Developer</h3>
+              </div>
+              <div class="hero__btn-wrapper" id="ctaButton">
+                <a href="#skills" class="hero__cta btn">
+                  Discover more about me
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="hero__illustration-container">
+            <div class="hero__illustration">
+              <div class="hero__bubbles">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <nav class="hero__socials media" id="socials">
+              <a href="https://facebook.com/oleg.osipov.01" class="media__item" id="facebook">
+                <svg class="media__icon icon-facebook">
+                  <use xlink:href="#icon_sprite_icon-facebook"></use>
+                </svg>
+              </a>
+              <a href="https://twitter.com/_olegosipov" class="media__item" id="twitter">
+                <svg class="media__icon icon-twitter">
+                  <use xlink:href="#icon_sprite_icon-twitter"></use>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/in/oleg-osipov-794602172"
+                class="media__item"
+                id="linkedin"
+              >
+                <svg class="media__icon icon-linkedin">
+                  <use xlink:href="#icon_sprite_icon-linkedin"></use>
+                </svg>
+              </a>
+              <a href="https://github.com/oleg-osipov" class="media__item" id="github">
+                <svg class="media__icon icon-github">
+                  <use xlink:href="#icon_sprite_icon-github"></use>
+                </svg>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--SECTION ABOUT-->
+    <section class="about" id="about">
+      <!--ARROW_DOWN-->
+      <div class="scroll-arw-box" id="scrollDownArrow">
+        <span>Scroll</span>
+        <div class="arw-dwn bounce">
+          <svg viewBox="0 0 22 52" xmlns="http://www.w3.org/2000/svg">
+            <line x1="10" y1="1" x2="10" y2="50"></line>
+            <line x1="10" y1="50" x2="20" y2="40"></line>
+            <line x1="10" y1="42" x2="19" y2="33"></line>
+          </svg>
+        </div>
+      </div>
+      <!--MENU-BURGER-ASIDE-->
+      <div class="burger-aside" id="burgerButtonAside">
+        <div class="burger-aside__box">
+          <span class="burger-aside__bar"></span>
+          <span class="burger-aside__bar"></span>
+          <span class="burger-aside__bar"></span>
+        </div>
+        <span class="burger-aside__txt">
+          <span>M</span>
+          <span>E</span>
+          <span>N</span>
+          <span>U</span>
+        </span>
+      </div>
+      <div class="container">
+        <!-- transition to section ABOUT -->
+        <div class="about__lg-title">
+          <span class="syllable1">/Ab</span>
+          <span class="syllable2">out</span>
+        </div>
+        <div class="about__content">
+          <div class="about__content-primary">
+            <div class="about__title" id="aboutTitle">
+              <h2 class="h2">A few random facts about me</h2>
+            </div>
+            <div class="about__txt-wrapper">
+              <p class="about__main-txt paragraph animated-text" id="observedElement">
+                I like the fact that software development, and Web development in particular with
+                its technical aspect, leaves a lot of room for creativity. Striving to build the
+                best possible user experience drives me to learn something new pretty much every
+                day. For me it reallay matters how quickly I can pick up some new
+                technology/technique or whatever, so I dedicate some effort to developing this
+                skill.
+              </p>
+            </div>
+          </div>
+          <div class="about__img-container-1">
+            <div class="container-bg"></div>
+            <div class="about__wrapper-img-1 slide-dwn animated-img" id="imageContainer">
+              <div class="about__bg-img-1"></div>
+              <img
+                class="about__img-1"
+                id="image_1"
+                src="./assets/img/portrait.jpg"
+                srcset="imgs/portrait_lg.jpg 920w"
+                sizes="(min-width:1260px) 45.5vw"
+                alt="portrait"
+              />
+            </div>
+          </div>
+          <div class="about__content-secondary">
+            <div class="about__txt-wrapper">
+              <p class="about__sc-txt paragraph animated-text">
+                In my spare time, you can catch me taking a forest run. Always loved nature:) and
+                motion. After reading the book “Born to run” by Christopher McDougall last year, I
+                got inspired and tried running myself. As a result, I completed two marathons in
+                2019 and became kind of addicted to this sport.
+              </p>
+            </div>
+          </div>
+          <div class="about__img-container-2">
+            <div class="container-bg"></div>
+            <div class="about__wrapper-img-2">
+              <div class="about__bg-img-2">
+                <span class="syllable-word">/Work</span>
+                <span class="syllable2">out</span>
+              </div>
+              <img
+                class="about__img-2 shrink-dwn animated-img"
+                src="./assets/img/workout.jpg"
+                srcset="imgs/workout_lg.jpg 750w, imgs/workout.jpg 650w"
+                sizes="(min-width:1260px) 45vw,
+                (min-width:700px) 65vw,
+                  (min-width:420px) 90vw, 100vw"
+                id="image_2"
+                alt="img_workout"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--SECTION SKILS-->
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="skills__wrapper">
+          <div class="skills__description">
+            <div class="skills__title"><h2 class="h1 animated-text">Skill set</h2></div>
+            <div class="skills__text-content animated-text">
+              <p class="paragraph">
+                In web development, technologies are changing quite rapidly especially in the
+                front-end field. Here is a short list of languages and tools/technologies that I use
+                to create web apps. In order to craft the most efficient and modern web applications
+                I always take into account trending tech.
+              </p>
+            </div>
+          </div>
+          <div class="skills__ilustrations">
+            <div class="skills__skill-set-container">
+              <ul class="skills__skill-set" id="skillSet">
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon js-icon">
+                      <svg id="js" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-js"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">JavaScript</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon css-icon">
+                      <svg id="css" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-css"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">css</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon html-icon">
+                      <svg id="html" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-html"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">html</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon sass-icon">
+                      <svg id="sass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-sass"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">sass</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon gulp-icon">
+                      <svg id="gulp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-gulp"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">gulp</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon npm-icon">
+                      <svg id="npm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-npm"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">npm</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon git-icon">
+                      <svg id="git" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <use xlink:href="#icon_sprite_icon-git"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">git</p>
+                  </div>
+                </li>
+                <li class="skills__skill">
+                  <div class="skills__skill-icon">
+                    <i class="icon responsive-icon">
+                      <svg
+                        id="responsive-design"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 100 100"
+                      >
+                        <use xlink:href="#icon_sprite_icon-responsive-design"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="skills__skill-name">
+                    <p class="paragraph">Responsive Design</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--SECTION CONTACTS-->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact__inner">
+          <div class="contact__title-container">
+            <div class="contact__title">
+              <h1 class="contact__title-txt">Reach out</h1>
+            </div>
+          </div>
+          <div class="contact__contacts">
+            <div class="contact__content-line">
+              <div class="contact__content-line-inner">
+                <h1 class="h1">Let's get in touch!</h1>
+              </div>
+            </div>
+            <div class="contact__contact-container">
+              <div class="contact__contact-item">
+                <div class="contact__item-name">
+                  <h3 class="h3">Email:</h3>
+                </div>
+                <div class="contact__item-data email-data paragraph" id="emailContainer">
+                  <span class="email" id="email">oleg-osipov@hotmail.com</span>
+                  <span class="email-hover" id="copyEmail">
+                    Copy to clipboard
+                  </span>
+                  <span class="email-copied" id="copyEmailInfo">Email copied</span>
+                </div>
+              </div>
+              <div class="contact__contact-item">
+                <div class="contact__item-name">
+                  <h3 class="h3">Social media:</h3>
+                </div>
+                <div class="contact__item-data">
+                  <a href="https://facebook.com/oleg.osipov.01" class="contact__facebook"
+                    ><p class="paragraph">facebook</p></a
+                  >
+                  <a href="https://twitter.com/_olegosipov" class="contact__twitter"
+                    ><p class="paragraph">twitter</p></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="contact__copyright-container">
+              <div class="contact__copyright">
+                <small>&copy; Copyright 2020, Crafted By Oleg Osipov</small>
+              </div>
+              <div class="contact__scroll-up">
+                <div class="contact__scroll-up-container">
+                  <a href="#home">
+                    <div class="contact__scroll-up-sign arw-up" id="scrollUpArrow">
+                      <svg viewBox="0 0 22 52" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="10" y1="1" x2="10" y2="50"></line>
+                        <line x1="10" y1="1" x2="18" y2="10"></line>
+                        <line x1="10" y1="1" x2="2" y2="10"></line>
+                      </svg>
+                    </div>
+                    <div class="contact__scroll-up-txt">
+                      <h3>Up</h3>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,3 +1,11 @@
-/node_modules
-/src
-/temporary_files
+app
+node_modules
+.vscode
+src_backup
+app_backup
+webpack.dev.js
+package-lock.json
+.babelrc
+imgs
+.gitignore
+

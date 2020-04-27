@@ -1,0 +1,63 @@
+//*Breakpoint*//
+
+$breakpoints: (
+  'xsmall': 420px,
+  'small': 768px,
+  'medium': 1024px,
+  'large': 1260px,
+  'wide': 1440px,
+  'ulwide': 1921px
+) !default;
+
+//**MIN/MAX-WIDTH**/
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+//@include mq("small", "max"/"min"-is default) {@content}
+@mixin mq($breakpoint, $type: min) {
+  @if map_has_key($breakpoints, $breakpoint) {
+    $value: map_get($breakpoints, $breakpoint);
+    @if $type == max {
+      $value: $value - 1px;
+    }
+    @media only screen and (#{$type}-width:  $value) {
+      @content;
+    }
+  }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+//**MIN-WIDTH AND MAX-WIDTH**/
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-between(small, medium) {@content}
+@mixin respond-between($lower, $upper) {
+  // If both the lower and upper breakpoints exist in the map.
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    // Get the lower and upper breakpoints.
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    // Write the media query.
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+
+    // If one or both of the breakpoints don't exist.
+  } @else {
+    // If lower breakpoint is invalid.
+    @if (map-has-key($breakpoints, $lower) == false) {
+      // Log a warning.
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+
+    // If upper breakpoint is invalid.
+    @if (map-has-key($breakpoints, $upper) == false) {
+      // Log a warning.
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}

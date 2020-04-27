@@ -1,0 +1,288 @@
+//***CLEARFIX***//
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/* Fallback for IE */
+
+@mixin transparentTextFallbackIE() {
+  color: $c-bg-primary; //same color as bg of parent
+  color: var(--mainBgColor);
+  $shadowColor: $c-font-primary;
+  text-shadow: -1px -1px 0 $shadowColor, 1px -1px 0 $shadowColor, -1px 1px 0 $shadowColor,
+    -1px 1px 0 $shadowColor, 1px 1px 0 $shadowColor;
+
+  @supports (-webkit-text-stroke: 1px $shadowColor) or (-moz-text-stroke: 1px $shadowColor) {
+    text-shadow: 0 0 0 transparent; //getting rid of txt-shadow
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -moz-text-fill-color: transparent;
+    -webkit-text-stroke: 1px $shadowColor;
+    -moz-text-stroke: 1px $shadowColor;
+  }
+}
+//*FLUID SIZING*//
+/// poly-fluid-sizing
+/// Generate linear interpolated size values through multiple break points
+/// @param $property - A string CSS property name
+/// @param $map - A SASS map of viewport unit and size value pairs
+/// @requires function linear-interpolation
+/// @requires function map-sort
+/// @example
+///   @include poly-fluid-sizing('font-size', (576px: 22px, 768px: 24px, 992px: 34px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@mixin poly-fluid-sizing($property, $map) {
+  // Get the number of provided breakpoints
+  $length: length(map-keys($map));
+
+  // Error if the number of breakpoints is < 2
+  @if ($length < 2) {
+    @error "poly-fluid-sizing() $map requires at least values";
+  }
+
+  // Sort the map by viewport width (key)
+  $map: map-sort($map);
+  $keys: map-keys($map);
+
+  // Minimum size
+  #{$property}: map-get($map, nth($keys, 1));
+
+  // Interpolated size through breakpoints
+  @for $i from 1 through ($length - 1) {
+    @media (min-width: nth($keys,$i)) {
+      #{$property}: linear-interpolation(
+        (
+          nth($keys, $i): map-get($map, nth($keys, $i)),
+          nth($keys, ($i + 1)): map-get($map, nth($keys, ($i + 1))),
+        )
+      );
+    }
+  }
+
+  // Maxmimum size
+  @media (min-width: nth($keys,$length)) {
+    #{$property}: map-get($map, nth($keys, $length));
+  }
+}
+
+/// linear-interpolation
+/// Calculate the definition of a line between two points
+/// @param $map - A SASS map of viewport widths and size value pairs
+/// @returns A linear equation as a calc() function
+/// @example
+///   font-size: linear-interpolation((320px: 18px, 768px: 26px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function linear-interpolation($map) {
+  $keys: map-keys($map);
+  @if (length($keys) != 2) {
+    @error "linear-interpolation() $map must be exactly 2 values";
+  }
+  // The slope
+  $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1)))/ (nth($keys, 2) - nth($keys, 1));
+
+  // The y-intercept
+  $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+
+  // Determine if the sign should be positive or negative
+  $sign: '+';
+  @if ($b < 0) {
+    $sign: '-';
+    $b: abs($b);
+  }
+
+  @return calc(#{$m * 100}vw #{$sign} #{$b});
+}
+
+/// list-sort
+/// Sort a SASS list
+/// @param $list - A SASS list
+/// @returns A sorted SASS list
+/// @requires function list-remove
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function list-sort($list) {
+  $sortedlist: ();
+  @while length($list) > 0 {
+    $value: nth($list, 1);
+    @each $item in $list {
+      @if $item < $value {
+        $value: $item;
+      }
+    }
+    $sortedlist: append($sortedlist, $value, 'space');
+    $list: list-remove($list, index($list, $value));
+  }
+  @return $sortedlist;
+}
+
+/// map-sort
+/// Sort map by keys
+/// @param $map - A SASS map
+/// @returns A SASS map sorted by keys
+/// @requires function list-sort
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function map-sort($map) {
+  $keys: list-sort(map-keys($map));
+  $sortedMap: ();
+  @each $key in $keys {
+    $sortedMap: map-merge(
+      $sortedMap,
+      (
+        $key: map-get($map, $key),
+      )
+    );
+  }
+  @return $sortedMap;
+}
+
+/// list-remove
+/// Remove an item from a list
+/// @param $list - A SASS list
+/// @param $index - The list index to remove
+/// @returns A SASS list
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function list-remove($list, $index) {
+  $newList: ();
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $newList: append($newList, nth($list, $i), 'space');
+    }
+  }
+  @return $newList;
+}
+
+//***ANIMATIONS***//
+@mixin anmt-text-up-in {
+  @keyframes text-up-in {
+    0% {
+      transform: translateY(100%);
+      opacity: 0.1;
+    }
+    80% {
+      transform: translateY(90%);
+      opacity: 0.5;
+    }
+    95% {
+      transform: translateY(-3%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+}
+
+//Big bubles on hero-section
+@keyframes morphing {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-delay: 0.2s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  // animation-fill-mode: forwards;s
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+@keyframes scrollArrow {
+  0% {
+    transform: translateY(0);
+  }
+  1% {
+    transform: translateY(0);
+  }
+  55% {
+    transform: translateY(10%);
+  }
+  60% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.scrollArow {
+  animation: scrollArrow 2s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 1px, 0);
+  }
+
+  to {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+.bounce {
+  animation: bounce 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+// @keyframes stretch {
+//   0% {
+//     width: 240px;
+//   }
+//   35% {
+//     width: 240px;
+//   }
+//   45% {
+//     width: 245px;
+//   }
+//   100% {
+//     width: 12px;
+//   }
+// }
+
+//*END**ANIMATONS*//
